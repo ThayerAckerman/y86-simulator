@@ -1,0 +1,18 @@
+0x000:                      |        .pos 0x0
+0x000: 10                   |        nop
+0x001: 30f44800000000000000 |        irmovq stack, %rsp
+0x00b: 30f03800000000000000 |        irmovq num, %rax
+0x015: 50100000000000000000 |        mrmovq (%rax), %rcx  # hardware should insert a bubble
+0x01f: 6011                 |        addq %rcx, %rcx      # %rcx should be -2 (ZF = 0, SF = 1, OF = 0)
+0x021: 50300800000000000000 |        mrmovq 8(%rax), %rbx # hardware should insert a bubble
+0x02b: 6013                 |        addq %rcx, %rbx      # %rbx should be -4 (ZF = 0, SF = 1, OF = 0)
+0x02d: b07f                 |        popq %rdi            # hardware should insert a bubble
+0x02f: 6117                 |        subq %rcx, %rdi      # %rdi should be -1 (ZF = 0, SF = 1, OF = 0)
+0x031: b09f                 |        popq %r9             # hardware should insert a bubble
+0x033: 6319                 |        xorq %rcx, %r9       # %r9 should be 2 (ZF = 0, SF = 0, OF = 0)
+0x035: 00                   |        halt
+0x038:                      |        .align 8
+0x038: ffffffffffffffff     | num:   .quad -1
+0x040: feffffffffffffff     |        .quad -2
+0x048: fdffffffffffffff     | stack: .quad -3
+0x050: fcffffffffffffff     |        .quad -4

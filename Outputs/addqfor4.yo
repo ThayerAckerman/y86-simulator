@@ -1,0 +1,38 @@
+0x000:                      |       .pos 0x0
+0x000: 10                   |       nop
+0x001: 30f10200000000000000 |       irmovq 2, %rcx
+0x00b: 30f00100000000000000 |       irmovq 1, %rax
+0x015: 10                   |       nop
+0x016: 10                   |       nop
+0x017: 6010                 |       addq %rcx, %rax       # %rax = 3, ZF = 0, SF = 0, OF = 0
+                            | #
+0x019: 30f3fcffffffffffffff |       irmovq -4, %rbx
+0x023: 30f20300000000000000 |       irmovq 3, %rdx
+0x02d: 10                   |       nop
+0x02e: 10                   |       nop
+0x02f: 6032                 |       addq %rbx, %rdx       # %rdx = -1, ZF = 0, SF = 1, OF = 0
+                            | #
+0x031: 30f5fbffffffffffffff |       irmovq -5, %rbp
+0x03b: 30f40500000000000000 |       irmovq 5, %rsp
+0x045: 10                   |       nop
+0x046: 10                   |       nop
+0x047: 6054                 |       addq %rbp, %rsp       # %rsp = 0, ZF = 1, SF = 0, OF = 0
+                            | #
+0x049: 30f70000000000000080 |       irmovq 0x8000000000000000, %rdi
+0x053: 30f60000000000000080 |       irmovq 0x8000000000000000, %rsi
+0x05d: 10                   |       nop
+0x05e: 10                   |       nop
+0x05f: 6076                 |       addq %rdi, %rsi       # %rsi = 0, ZF = 1, SF = 0, OF = 1
+                            | #
+0x061: 30f9ffffffffffffff7f |       irmovq 0x7fffffffffffffff, %r9
+0x06b: 30f8ffffffffffffff7f |       irmovq 0x7fffffffffffffff, %r8
+0x075: 10                   |       nop
+0x076: 10                   |       nop
+0x077: 6098                 |       addq %r9, %r8         # %r8 = 0xfffffffffffffffe, ZF = 0, SF = 1, OF = 1
+                            | #
+0x079: 30fb0100000000000080 |       irmovq 0x8000000000000001, %r11
+0x083: 30fa0000000000000080 |       irmovq 0x8000000000000000, %r10
+0x08d: 10                   |       nop
+0x08e: 10                   |       nop
+0x08f: 60ba                 |       addq %r11, %r10         # %r10 = 1, ZF = 0, SF = 0, OF = 1
+0x091: 00                   |       halt

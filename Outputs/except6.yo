@@ -1,0 +1,5 @@
+0x000:                      |              .pos 0
+0x000: 30f00300000000000000 |              $irmovq $3, %rax
+0x00a: c0f10400000000000000 |              $irmovq $4, %rcx   #opcode changed to invalid one
+0x014: 30f20500000000000000 |              $irmovq $5, %rdx
+0x01e: 00                   |              halt

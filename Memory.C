@@ -54,9 +54,11 @@ Memory * Memory::getInstance()
  */
 uint64_t Memory::getLong(int32_t address, bool & imem_error)
 {
-   // get the long if the address in in range and aligned
-   if (address % 8 == 0 && address + 7 < MEMSIZE && address >= 0) {
-      imem_error = false;
+   // get the long if the address in in range
+   // NO LONGER CHECKING FOR ALIGNMENT
+   if (address + 7 < MEMSIZE && address >= 0) {
+      if (address % 8 == 0) imem_error = false;
+      else imem_error = true;
       // build a long from 8 uint8_t
       uint64_t result;
       for (int i = 0; i < LONGSIZE; i++) {
@@ -86,7 +88,7 @@ uint8_t Memory::getByte(int32_t address, bool & imem_error)
    // get the byte if the address is in range
    if (address < MEMSIZE && address >= 0) {
       imem_error = false;
-      return Tools::getByte(mem[address], 0);
+      return mem[address];
    }
    // return 0 with an error if the address in not in range
    else {

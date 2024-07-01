@@ -1,0 +1,60 @@
+      .pos 0
+#Put your code here. You'll need some 
+#initialization code and then five chunks
+#of code that are basically identical.
+      irmovq $0, %rax
+      irmovq $list, %r8
+      
+      mrmovq (%r8), %rbx
+      nop
+      rrmovq %rbx, %rcx
+      subq %rbx, %rcx
+      subq %rbx, %rcx
+      addq %rax, %rbx
+      cmovl %rcx, %rbx
+      rmmovq %rbx, (%r8)
+
+      mrmovq 8(%r8), %rbx
+      nop
+      rrmovq %rbx, %rcx
+      subq %rbx, %rcx
+      subq %rbx, %rcx
+      addq %rax, %rbx
+      cmovl %rcx, %rbx
+      rmmovq %rbx, 8(%r8)
+
+      mrmovq 16(%r8), %rbx
+      nop
+      rrmovq %rbx, %rcx
+      subq %rbx, %rcx
+      subq %rbx, %rcx
+      addq %rax, %rbx
+      cmovl %rcx, %rbx
+      rmmovq %rbx, 16(%r8)  
+
+      mrmovq 24(%r8), %rbx
+      nop
+      rrmovq %rbx, %rcx
+      subq %rbx, %rcx
+      subq %rbx, %rcx
+      addq %rax, %rbx
+      cmovl %rcx, %rbx
+      rmmovq %rbx, 24(%r8)  
+
+      mrmovq 32(%r8), %rbx
+      nop
+      rrmovq %rbx, %rcx
+      subq %rbx, %rcx
+      subq %rbx, %rcx
+      addq %rax, %rbx
+      cmovl %rcx, %rbx
+      rmmovq %rbx, 32(%r8) 
+
+      halt
+
+      .align 8
+list: .quad -2            #at end: 2
+      .quad 5             #at end: 5 
+      .quad -15           #at end: f
+      .quad 0             #at end: 0
+      .quad -1            #at end: 1
