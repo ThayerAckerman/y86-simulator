@@ -1,19 +1,42 @@
 0x000:                      |       .pos 0
-                            | #Put your code here. You'll need some 
-                            | #initialization code and then five chunks
-                            | #of code that are basically identical.
+                            |
+                            | # This Y86 program calculates the absolute
+                            | # value of five integer numbers.
+                            | 
+                            | # The program takes any five integers,
+                            | # stored in memory at addresses 0x0b0, 0x0b8,
+                            | # 0x0c0, 0x0c8, and 0x0d0, and calculates 
+                            | # their absolute values, storing them at their
+                            | # respective locations in memory.
+                            |
+                            | # By the end of the program, the absolute
+                            | # value of numbers -2, 5, -15, 0, and -1
+                            | # will be calculated as 2, 5, 15, 0, and 1.
+                            |
+                            | # Retrieve a pointer to the five numbers in memory.
 0x000: 30f00000000000000000 |       irmovq $0, %rax
 0x00a: 30f8b000000000000000 |       irmovq $list, %r8
                             |       
+                            |
+                            | # Retrieve the first number, n, from memory.
 0x014: 50380000000000000000 |       mrmovq (%r8), %rbx
 0x01e: 10                   |       nop
 0x01f: 2031                 |       rrmovq %rbx, %rcx
+                            | # Subtract the number, n, from itself twice.
+                            | # If n is positive, this will yield -n.
+                            | # If n is negative, this will yield abs(n).
 0x021: 6131                 |       subq %rbx, %rcx
 0x023: 6131                 |       subq %rbx, %rcx
+                            | # Use an empty addition and a conditional move
+                            | # to only save the previous value if n is negative.
 0x025: 6003                 |       addq %rax, %rbx
 0x027: 2213                 |       cmovl %rcx, %rbx
+                            | # Store the absolute value in memory.
 0x029: 40380000000000000000 |       rmmovq %rbx, (%r8)
                             | 
+                            |
+                            | # Repeat the previous algorithm for
+                            | # the second number.
 0x033: 50380800000000000000 |       mrmovq 8(%r8), %rbx
 0x03d: 10                   |       nop
 0x03e: 2031                 |       rrmovq %rbx, %rcx
@@ -23,6 +46,8 @@
 0x046: 2213                 |       cmovl %rcx, %rbx
 0x048: 40380800000000000000 |       rmmovq %rbx, 8(%r8)
                             | 
+                            | # Repeat the previous algorithm for
+                            | # the third number.
 0x052: 50381000000000000000 |       mrmovq 16(%r8), %rbx
 0x05c: 10                   |       nop
 0x05d: 2031                 |       rrmovq %rbx, %rcx
@@ -31,7 +56,9 @@
 0x063: 6003                 |       addq %rax, %rbx
 0x065: 2213                 |       cmovl %rcx, %rbx
 0x067: 40381000000000000000 |       rmmovq %rbx, 16(%r8)  
-                            | 
+                            |
+                            | # Repeat the previous algorithm for
+                            | # the fourth number. 
 0x071: 50381800000000000000 |       mrmovq 24(%r8), %rbx
 0x07b: 10                   |       nop
 0x07c: 2031                 |       rrmovq %rbx, %rcx
@@ -40,7 +67,9 @@
 0x082: 6003                 |       addq %rax, %rbx
 0x084: 2213                 |       cmovl %rcx, %rbx
 0x086: 40381800000000000000 |       rmmovq %rbx, 24(%r8)  
-                            | 
+                            |
+                            | # Repeat the previous algorithm for
+                            | # the fifth number. 
 0x090: 50382000000000000000 |       mrmovq 32(%r8), %rbx
 0x09a: 10                   |       nop
 0x09b: 2031                 |       rrmovq %rbx, %rcx
@@ -49,12 +78,14 @@
 0x0a1: 6003                 |       addq %rax, %rbx
 0x0a3: 2213                 |       cmovl %rcx, %rbx
 0x0a5: 40382000000000000000 |       rmmovq %rbx, 32(%r8) 
-                            | 
+                            |
+                            | # Halt the processor. 
 0x0af: 00                   |       halt
-                            | 
+                            |
+                            | # The memory locations of the five numbers: 
 0x0b0:                      |       .align 8
-0x0b0: feffffffffffffff     | list: .quad -2            #at end: 2
-0x0b8: 0500000000000000     |       .quad 5             #at end: 5 
-0x0c0: f1ffffffffffffff     |       .quad -15           #at end: f
-0x0c8: 0000000000000000     |       .quad 0             #at end: 0
-0x0d0: ffffffffffffffff     |       .quad -1            #at end: 1
+0x0b0: feffffffffffffff     | list: .quad -2            # at end: 2
+0x0b8: 0500000000000000     |       .quad 5             # at end: 5 
+0x0c0: f1ffffffffffffff     |       .quad -15           # at end: 15
+0x0c8: 0000000000000000     |       .quad 0             # at end: 0
+0x0d0: ffffffffffffffff     |       .quad -1            # at end: 1
