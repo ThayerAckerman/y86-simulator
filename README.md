@@ -147,7 +147,7 @@ An example of a Y86 assembly program can be seen in the [absVal.yo](Tests/absVal
 0x0d0: ffffffffffffffff     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|       .quad -1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# at end: 1<br>
 </div>
 
-[**↑** *skip up* **↑**](#installation)
+[**↑** *skip up* **↑**](#y86-assembly-code)
 <br>
 
 ---
