@@ -6,8 +6,6 @@ class FetchStage: public Stage
       bool F_stall;
       bool D_stall;
       bool D_bubble;
-      uint64_t d_srcA;
-      uint64_t d_srcB;
       void setDInput(D * dreg, uint64_t stat, uint64_t icode, uint64_t ifun, 
                      uint64_t rA, uint64_t rB,
                      uint64_t valC, uint64_t valP);

@@ -1,9 +1,0 @@
-                            | #test to make sure simulator doesn't execute instructions after the HALT
-0x000:                      |           .pos 0
-0x000: 30f00100000000000000 |           irmovq $1, %rax
-0x00a: 30f20300000000000000 |           irmovq $3, %rdx          #Change to nop because of memory error
-0x014: 40200000000000000000 |           rmmovq %rdx, 0(%rax)     #This should cause a memory error
-0x01e: 30f30400000000000000 |           irmovq $4, %rbx          #Change to nop because of memory error
-0x028: 30f70500000000000000 |           irmovq $5, %rdi          #Change to nop because of memory error
-0x032: 30f60600000000000000 |           irmovq $6, %rsi          #Change to nop because of memory error
-0x03c: 00                   |           halt

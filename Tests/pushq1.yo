@@ -1,0 +1,22 @@
+0x000:                      |       .pos 0x0
+0x000: 10                   |       nop
+0x001: 30f40002000000000000 |       irmovq stack, %rsp
+0x00b: 30f10100000000000000 |       irmovq 1, %rcx
+0x015: a01f                 |       pushq %rcx         # m[0x1f8] = 1
+0x017: 6011                 |       addq %rcx, %rcx
+0x019: a01f                 |       pushq %rcx         # m[0x1f0] = 2
+0x01b: 6011                 |       addq %rcx, %rcx
+0x01d: a01f                 |       pushq %rcx         # m[0x1e8] = 4
+0x01f: 6011                 |       addq %rcx, %rcx
+0x021: a01f                 |       pushq %rcx         # m[0x1e0] = 8
+0x023: 6011                 |       addq %rcx, %rcx
+0x025: a01f                 |       pushq %rcx         # m[0x1d8] = 0x10
+0x027: 6011                 |       addq %rcx, %rcx
+0x029: a01f                 |       pushq %rcx         # m[0x1d0] = 0x20
+0x02b: 00                   |       halt
+0x02c: 10                   |       nop
+0x02d: 10                   |       nop
+0x02e: 10                   |       nop
+0x02f: 10                   |       nop
+0x200:                      |        .pos 0x200
+0x200:                      | stack: 

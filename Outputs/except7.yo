@@ -1,7 +1,0 @@
-0x000:                      |         .pos 0
-0x000: 30f10010000000000000 |         irmovq $0x1000, %rcx
-0x00a: 30f0ffffffffffffffff |         irmovq $-1, %rax
-0x014: 50210000000000000000 |         mrmovq 0(%rcx), %rdx    # causes an exception
-0x01e: 6200                 |         andq %rax, %rax         # setting of condition codes are turned off
-0x020: 30f30300000000000000 |         irmovq $3, %rbx
-0x02a: 00                   |         halt

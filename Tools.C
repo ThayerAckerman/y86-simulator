@@ -270,9 +270,9 @@ uint8_t Tools::sign(uint64_t source)
  */
 bool Tools::addOverflow(uint64_t op1, uint64_t op2)
 {
-   uint64_t var = (sign(op1) & sign(op2) & !sign(op1 + op2));
-   uint64_t var2 = (!sign(op1) & !sign(op2) & sign(op1 +op2));
-   uint64_t var3 = var | var2;
+   uint64_t var = (sign(op1) && sign(op2) && !sign(op1 + op2));
+   uint64_t var2 = (!sign(op1) && !sign(op2) && sign(op1 +op2));
+   uint64_t var3 = var || var2;
    return var3;
 }
 

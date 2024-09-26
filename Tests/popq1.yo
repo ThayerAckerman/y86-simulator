@@ -1,0 +1,21 @@
+0x000:                      |       .pos 0x0
+0x000: 10                   |       nop
+0x001: 30f40002000000000000 |       irmovq stack, %rsp
+0x00b: b00f                 |       popq %rax     # %rax = 1   
+0x00d: b01f                 |       popq %rcx     # %rcx = 2   
+0x00f: b02f                 |       popq %rdx     # %rdx = 4   
+0x011: b03f                 |       popq %rbx     # %rbx = 8   
+0x013: b06f                 |       popq %rsi     # %rsi = 0x10  
+0x015: b07f                 |       popq %rdi     # %rdi = 0x20   
+0x017: 00                   |       halt
+0x018: 10                   |       nop
+0x019: 10                   |       nop
+0x01a: 10                   |       nop
+0x01b: 10                   |       nop
+0x200:                      |        .pos 0x200
+0x200: 0100000000000000     | stack: .quad 1
+0x208: 0200000000000000     |        .quad 2
+0x210: 0400000000000000     |        .quad 4
+0x218: 0800000000000000     |        .quad 8
+0x220: 1000000000000000     |        .quad 16
+0x228: 2000000000000000     |        .quad 32
