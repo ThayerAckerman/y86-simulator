@@ -1,0 +1,26 @@
+0x000:                      |        .pos 0x0
+0x000: 10                   |        nop
+0x001: 30f45000000000000000 |        irmovq stack, %rsp
+0x00b: 30f04000000000000000 |        irmovq num, %rax
+0x015: 50100000000000000000 |        mrmovq (%rax), %rcx
+0x01f: 10                   |        nop
+0x020: 2012                 |        rrmovq %rcx, %rdx   # %rcx, %rdx should be 1
+0x022: 50300800000000000000 |        mrmovq 8(%rax), %rbx
+0x02c: 10                   |        nop
+0x02d: 2036                 |        rrmovq %rbx, %rsi   # %rbx, %rsi should be 2
+0x02f: b07f                 |        popq %rdi
+0x031: 10                   |        nop
+0x032: 2078                 |        rrmovq %rdi, %r8    # %rdi, %r8 should be 3 
+0x034: b09f                 |        popq %r9
+0x036: 10                   |        nop
+0x037: 209a                 |        rrmovq %r9, %r10    # %r9, %r10 should be 4 
+0x039: 00                   |        halt
+0x03a: 10                   |        nop
+0x03b: 10                   |        nop
+0x03c: 10                   |        nop
+0x03d: 10                   |        nop
+0x040:                      |        .align 8
+0x040: 0100000000000000     | num:   .quad 1
+0x048: 0200000000000000     |        .quad 2
+0x050: 0300000000000000     | stack: .quad 3
+0x058: 0400000000000000     |        .quad 4

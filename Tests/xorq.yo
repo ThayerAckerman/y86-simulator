@@ -1,0 +1,38 @@
+0x000:                      |       .pos 0x0
+0x000: 10                   |       nop
+0x001: 30f00100000000000000 |       irmovq 1, %rax
+0x00b: 30f10300000000000000 |       irmovq 3, %rcx
+0x015: 10                   |       nop
+0x016: 10                   |       nop
+0x017: 10                   |       nop
+0x018: 6301                 |       xorq %rax, %rcx       # %rcx = 2, ZF = 0, SF = 0, OF = 0
+                            | #
+0x01a: 30f20100000000000000 |       irmovq 1, %rdx
+0x024: 30f30000000000000080 |       irmovq 0x8000000000000000, %rbx
+0x02e: 10                   |       nop
+0x02f: 10                   |       nop
+0x030: 10                   |       nop
+0x031: 6323                 |       xorq %rdx, %rbx       # %rbx = 0x8000000000000001, ZF = 0, SF = 1, OF = 0
+                            | #
+0x033: 30f4ffffffffffffffff |       irmovq -1, %rsp
+0x03d: 30f5feffffffffffffff |       irmovq -2, %rbp
+0x047: 10                   |       nop
+0x048: 10                   |       nop
+0x049: 10                   |       nop
+0x04a: 6345                 |       xorq %rsp, %rbp       # %rbp = 1, ZF = 0, SF = 0, OF = 0
+                            | #
+0x04c: 30f6ffffffffffffffff |       irmovq -1, %rsi
+0x056: 30f70100000000000000 |       irmovq 1, %rdi
+0x060: 10                   |       nop
+0x061: 10                   |       nop
+0x062: 10                   |       nop
+0x063: 6367                 |       xorq %rsi, %rdi       # %rdi = -2, ZF = 0, SF = 1, OF = 0
+                            | #
+0x065: 30f8feffffffffffffff |       irmovq -2, %r8
+0x06f: 30f9feffffffffffffff |       irmovq -2, %r9
+0x079: 10                   |       nop
+0x07a: 10                   |       nop
+0x07b: 10                   |       nop
+0x07c: 6389                 |       xorq %r8, %r9         # %r9 = 0, ZF = 1, SF = 0, OF = 0
+                            | #
+0x07e: 00                   |       halt
