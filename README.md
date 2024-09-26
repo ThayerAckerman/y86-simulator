@@ -51,6 +51,8 @@ The C/C++ Simulator for the Y86 Processor effectively mimics the behavior of the
 Y86 assembly code is a simplified low-level programming language designed for the Y86 architecture. It provides a direct representation of machine instructions, allowing programmers to manipulate hardware resources, manage memory, and control execution flow. As a precursor to more complex architectures like x86, Y86 assembly emphasizes fundamental concepts such as instruction formats and addressing modes, making it a practical tool for understanding how software interacts with hardware.
 
 An example of a Y86 assembly program can be seen in the [absVal.yo](Tests/absVal.yo) file. This program takes 5 integers stored in memory and computes their absolute values:
+
+[**↓** *skip down* **↓**](#installation)
 <div style="height: 225px; overflow-y: scroll; overflow-x: auto; border: 1px solid #ccc; padding: 10px; white-space: nowrap;">
 0x000:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.pos 0<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
@@ -145,6 +147,7 @@ An example of a Y86 assembly program can be seen in the [absVal.yo](Tests/absVal
 0x0d0: ffffffffffffffff     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|       .quad -1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# at end: 1<br>
 </div>
 
+[**↑** *skip up* **↑**](#installation)
 <br>
 
 ---
