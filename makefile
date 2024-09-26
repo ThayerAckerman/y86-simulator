@@ -51,7 +51,7 @@ ConditionCodes.o: ConditionCodes.h Tools.h
 Loader.o: Loader.C Loader.h Memory.h
 
 clean:
-	rm $(OBJ)
+	rm -f $(OBJ)
 
 run:
 	make clean
